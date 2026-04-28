@@ -27,9 +27,6 @@ struct ForgotPasswordView: View {
                     .fontWeight(.semibold)
                     .foregroundStyle(Color.theme.loginButton)
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                navigationBarTrailingItem
-            }
         }
     }
     
@@ -50,22 +47,6 @@ struct ForgotPasswordView: View {
                     .font(.headline)
                     .foregroundColor(Color.theme.loginButton)
                 }
-            })
-        .accentColor(Color.theme.loginButton)
-    }
-    
-    private var navigationBarTrailingItem: some View  {
-        Button(
-            action: {
-            },
-            label: {
-                CircleButtonView(
-                    iconName: "square.and.pencil",
-                    width: 25,
-                    height: 25,
-                    foregroundColor: .loginButton,
-                    backgroundColor:Color.theme.backGround
-                )
             })
         .accentColor(Color.theme.loginButton)
     }
