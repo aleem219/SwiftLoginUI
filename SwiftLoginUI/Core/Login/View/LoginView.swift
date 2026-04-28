@@ -14,6 +14,7 @@ struct LoginView: View {
     //    @Environment(UserViewModel.self) private var user
     @State private var showToast = false
     @State private var toastMessage = ""
+    @State private var navigateToForgotPassword = false
     
     var body: some View {
         ZStack {
@@ -140,11 +141,15 @@ struct LoginView: View {
                 .foregroundStyle(Color.secondary.opacity(0.8))
             Button {
                 print("Navigate to Forgot Password")
+                navigateToForgotPassword = true
             } label: {
                 Text("Click here")
                     .font(.subheadline)
                     .fontWeight(.medium)
                     .foregroundStyle(Color.theme.loginButton)
+            }
+            .navigationDestination(isPresented: $navigateToForgotPassword) {
+                ForgotPasswordView()
             }
         }
     }
