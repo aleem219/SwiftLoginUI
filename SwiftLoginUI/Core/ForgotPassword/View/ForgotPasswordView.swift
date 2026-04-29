@@ -28,6 +28,10 @@ struct ForgotPasswordView: View {
                     .foregroundStyle(Color.theme.loginButton)
             }
         }
+        .overlay(alignment: .top) {
+            Divider()
+                .frame(height: 20)
+        }
     }
     
     private var navigationBarLeadingItem: some View {
