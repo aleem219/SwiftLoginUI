@@ -70,6 +70,14 @@ class LoginViewModel {
                 self?.handleLoginError(error)
             }
             .store(in: &cancellables)
+        
+        loginService.$showNoInternetAlert
+            .filter { $0 == true }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.isLoading = false
+            }
+            .store(in: &cancellables)
     }
     
     private func handleLoginResponse(_ response: LoginModel.Response) {

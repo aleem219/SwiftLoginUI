@@ -12,9 +12,19 @@ class LoginService {
     
     @Published var loginResponse: LoginModel.Response? = nil
     @Published var loginError: Error? = nil
+    @Published var showNoInternetAlert: Bool = false
+    private let networkMonitor = NetworkMonitor.shared
     private var loginSubscription: AnyCancellable?
     
     func login(username: String, password: String) {
+        
+        guard networkMonitor.isConnected else {
+            showNoInternetAlert = true
+            print("Login aborted: No internet connection.")
+            return
+        }
+        
+        
         guard let url = URL(string: "\(AppsNetworkManagerConstants.Endpoints.login)") else { return }
         
         let requestBody = LoginModel.createRequestBody(username: username, password: password)
@@ -32,7 +42,7 @@ class LoginService {
                 }
             }, receiveValue: { [weak self] returnedResponse in
                 self?.loginResponse = returnedResponse
-//                self?.loginSubscription?.cancel()
+                //                self?.loginSubscription?.cancel()
                 print("Login Success - received data from \(LoginModel.self) is: \n\(returnedResponse)\n")
             })
     }
