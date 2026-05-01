@@ -11,7 +11,12 @@ struct NotificationView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(NotificationViewModel.self) private var vm
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+              VStack(spacing: 16) {
+                  Text("Hello, World!")
+              }
+              .padding()
+          }
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
