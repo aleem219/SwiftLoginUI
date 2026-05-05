@@ -32,15 +32,17 @@ struct TabbarView: View {
                     
                     switch selectedTab {
                     case .Carts:
-                        ProductView()
                         
+//                        Text("Music")
+//                            .font(.largeTitle)
+                        HomeView()
                     case .contacts:
                         UserView()
                             .environment(userViewModel)
                         
                     case .music:
-                        Text("Music")
-                            .font(.largeTitle)
+                        
+                        ProductView()
                         
                     case .favorites:
                         Text("Favorites")
@@ -66,8 +68,8 @@ struct TabbarView: View {
                     }
                 }
             }
-              .toolbarBackground(Color.theme.loginButton.opacity(0.3), for: .navigationBar)
-              .toolbarBackground(.visible, for: .navigationBar)
+//              .toolbarBackground(Color.theme.loginButton.opacity(0.3), for: .navigationBar)
+//              .toolbarBackground(.visible, for: .navigationBar)
         }
     }
 }

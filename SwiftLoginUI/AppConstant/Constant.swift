@@ -71,7 +71,8 @@ public enum StringConstants {
         static let loginLogo                = "logo"
         static let passowrdTextfieldImg     = "lock.circle"
         static let emailTextfieldImg        = "person.circle"
-        static let leftArrow                = "arrow.left.circle"
+        static let leftArrow                = "arrow.left.circle"  // lifecycleImage
+        static let lifecycleImage                = "lifecycleImage"  // 
     }
     
     public enum FolderNames {
