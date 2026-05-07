@@ -68,8 +68,6 @@ struct TabbarView: View {
                     }
                 }
             }
-//              .toolbarBackground(Color.theme.loginButton.opacity(0.3), for: .navigationBar)
-//              .toolbarBackground(.visible, for: .navigationBar)
         }
     }
 }

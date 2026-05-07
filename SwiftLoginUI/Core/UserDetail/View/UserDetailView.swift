@@ -109,6 +109,8 @@ struct UserDetailView: View {
                 }
             }
         }
+        .toolbarBackground(Color.theme.backGround, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
         .task {
             await vm.fetchUser(userId: userID)
         }
