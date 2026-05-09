@@ -22,13 +22,13 @@ struct ItemRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.title)
                     .font(.body)
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.theme.loginButton)
                     .fontWeight(.medium)
                    
 
                 Text(item.subtitle)
                     .font(.caption)
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.theme.loginButton)
                     .foregroundStyle(.secondary)
             
             }

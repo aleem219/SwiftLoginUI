@@ -49,7 +49,7 @@ struct HomeView: View {
                         }
                     }
                 }
-                .overlay(Color.white.opacity(0.2))
+                .overlay(Color.theme.backGround.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(.vertical, 16)
                 .padding(.horizontal, 16)
