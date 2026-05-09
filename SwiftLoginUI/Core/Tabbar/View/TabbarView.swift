@@ -58,16 +58,16 @@ struct TabbarView: View {
                 CustomTabBar(selectedTab: $selectedTab)
                     .background(Color.theme.backGround)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: NotificationView()
-                        .environment(notificationViewModel) ) {
-                        Image(systemName: "bell.badge.circle")
-                            .font(.headline)
-                            .tint(Color.theme.loginButton.opacity(0.6))
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    NavigationLink(destination: NotificationView()
+//                        .environment(notificationViewModel) ) {
+//                        Image(systemName: "bell.badge.circle")
+//                            .font(.headline)
+//                            .tint(Color.theme.loginButton.opacity(0.6))
+//                    }
+//                }
+//            }
         }
     }
 }
