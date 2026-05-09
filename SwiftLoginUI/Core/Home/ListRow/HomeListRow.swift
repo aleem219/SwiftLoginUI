@@ -13,11 +13,21 @@ struct ItemRow: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(item.icon)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 36, height: 36)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
+            Group {
+                if UIImage(named: item.icon) != nil {
+                    Image(item.icon)
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    Image(systemName: item.icon)
+                        .resizable()
+                        .scaledToFit()
+                        .padding(6)
+                        .foregroundColor(Color.theme.loginButton)
+                }
+            }
+            .frame(width: 36, height: 36)
+            .clipShape(RoundedRectangle(cornerRadius: 6))
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.title)

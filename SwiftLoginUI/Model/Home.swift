@@ -23,8 +23,8 @@ struct Home: Identifiable {
 
 extension Home {
     static let mockData: [Home] = [
-        Home(title: "Fetch Data", subtitle: "Loaad or refresh content", icon: StringConstants.ImageName.leftArrow),
-        Home(title: "Update UI", subtitle: "Keep UI in sync", icon: StringConstants.ImageName.leftArrow),
-        Home(title: "Analytic", subtitle: "Track screen visibiltty", icon: StringConstants.ImageName.leftArrow),
+        Home(title: "Fetch Data", subtitle: "Loaad or refresh content", icon: StringConstants.ImageName.passowrdTextfieldImg),
+        Home(title: "Update UI", subtitle: "Keep UI in sync", icon: StringConstants.ImageName.passowrdTextfieldImg),
+        Home(title: "Analytic", subtitle: "Track screen visibiltty", icon: StringConstants.ImageName.passowrdTextfieldImg),
     ]
 }
