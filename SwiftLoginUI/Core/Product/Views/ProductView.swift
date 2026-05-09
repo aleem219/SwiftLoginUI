@@ -66,6 +66,7 @@ struct ProductView: View {
                 }
             }
             .scrollContentBackground(.hidden)
+            .scrollIndicators(.hidden)
             .contentMargins(.bottom, 0, for: .scrollContent) // iOS 17+
            
         }
