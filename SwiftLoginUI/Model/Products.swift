@@ -8,13 +8,13 @@
 import Foundation
 
 struct ProductResponse: Codable {
-    let carts: [Cart]?
+    let carts: [Product]?
     let total: Int?
     let skip: Int?
     let limit: Int?
 }
 
-struct Cart: Codable {
+struct Product: Codable {
     let id: Int?
     let products: [ProductItem]?
     let total: Double?

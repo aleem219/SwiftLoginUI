@@ -15,12 +15,12 @@ class ProductViewModel {
     var isLoading: Bool = false
     var isLoadingMore: Bool = false
     private(set) var errorMessage: String? = nil
-    private(set) var carts: [Cart] = []
+    private(set) var carts: [Product] = []
     private var currentSkip: Int = 0
     private let limit: Int = 30
     private var total: Int = 0
     var hasMore: Bool { carts.count < total }
-    private let productService = ProductService()  // ✅ lowercase — was ProductService = ProductService() (name clash)
+    private let productService = ProductService()
     private var cancellables = Set<AnyCancellable>()
     
     init() {
@@ -30,18 +30,18 @@ class ProductViewModel {
     func fetchCarts() async {
         currentSkip = 0
         isLoading = true
-        productService.getCartList(skip: 0, limit: limit)  // ✅ productService (lowercase)
+        productService.getCartList(skip: 0, limit: limit)
     }
     
     func fetchMoreCarts() async {
         guard hasMore, !isLoadingMore else { return }
         isLoadingMore = true
         currentSkip += limit
-        productService.getCartList(skip: currentSkip, limit: limit)  // ✅ productService (lowercase)
+        productService.getCartList(skip: currentSkip, limit: limit)
     }
     
     private func bindProductService() {
-        productService.$productResponse          // ✅ productService (lowercase)
+        productService.$productResponse
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] response in
@@ -59,7 +59,7 @@ class ProductViewModel {
             }
             .store(in: &cancellables)
         
-        productService.$productError             // ✅ productService (lowercase)
+        productService.$productError
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
@@ -70,7 +70,7 @@ class ProductViewModel {
             .store(in: &cancellables)
     }
     
-    private func saveThumbnails(carts: [Cart]) {
+    private func saveThumbnails(carts: [Product]) {
         let items = carts.flatMap { $0.products ?? [] }
         for item in items {
             guard let thumbnailUrl = item.thumbnail,
