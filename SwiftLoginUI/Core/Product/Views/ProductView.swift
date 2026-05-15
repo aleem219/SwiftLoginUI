@@ -22,25 +22,15 @@ struct ProductView: View {
                     .foregroundStyle(.red)
             } else {
                 List {
-                    ForEach(vm.carts, id: \.id) { cart in
+                    ForEach(vm.carts, id: \.id) { product in
                         VStack {
                             VStack(alignment: .leading, spacing: 12) {
-                                ForEach(cart.products ?? [], id: \.id) { item in
+                                ForEach(product.products ?? [], id: \.id) { item in
                                     ProductItemRowView(product: item)
                                 }
                             }
                             .padding()
-
-                            HStack {
-                                Text("Total:")
-                                    .font(.caption)
-                                Spacer()
-                                Text("₹\(cart.discountedTotal ?? 0, specifier: "%.0f")")
-                                    .font(.caption)
-                                    .fontWeight(.bold)
-                            }
-                            .padding(8)
-                            .background(Color.theme.loginButton.gradient.opacity(0.5))
+                            bottomProductView(product: product)
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .listRowInsets(EdgeInsets())
@@ -60,6 +50,19 @@ struct ProductView: View {
         .task {
             await vm.fetchCarts()
         }
+    }
+    
+    private func bottomProductView(product: Product) -> some View {
+        HStack {
+            Text("Total:")
+                .font(.caption)
+            Spacer()
+            Text("₹\(product.discountedTotal ?? 0, specifier: "%.0f")")
+                .font(.caption)
+                .fontWeight(.bold)
+        }
+        .padding(8)
+        .background(Color.theme.loginButton.gradient.opacity(0.5))
     }
 }
 
