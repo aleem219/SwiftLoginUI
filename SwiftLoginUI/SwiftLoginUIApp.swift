@@ -37,6 +37,7 @@ struct SwiftLoginUIApp: App {
     @State private var vm = LoginViewModel()
     @State private var userViewModel = UserViewModel()
     @State private var userDetailViewModel = UserDetailViewModel()
+    @State private var productViewModel = ProductViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -47,6 +48,7 @@ struct SwiftLoginUIApp: App {
                     }
                     .environment(userViewModel)
                     .environment(userDetailViewModel)
+                    .environment(productViewModel)  
                 } else {
                     NavigationStack {
                         LoginView()

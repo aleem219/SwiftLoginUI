@@ -22,6 +22,7 @@ struct AppsNetworkManagerConstants {
         static let users = "\(AppsNetworkManagerConstants.baseUrl)users"
         static let userDetail = "\(AppsNetworkManagerConstants.baseUrl)users/%d"
         static let notification = "\(AppsNetworkManagerConstants.mockBaseUrl)notifications"
+        static let cart = "\(AppsNetworkManagerConstants.baseUrl)carts"
     }
 }
 
