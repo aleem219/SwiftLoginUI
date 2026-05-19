@@ -97,9 +97,22 @@ class LoginViewModel {
         isLoading = false
         if let networkError = error as? NetworkingManager.NetworkingError {
             switch networkError {
+            case .invalidURL:
+                errorMessage = "\(StringConstants.AuthorizationFailedMsg.somethingWentWrong)"
+            case .noConnection:
+                errorMessage = "\(StringConstants.AuthorizationFailedMsg.noInternet)"
+            case .timeout:
+                errorMessage = "\(StringConstants.AuthorizationFailedMsg.timeout)"
+            case .httpError(let code):
+                errorMessage = "\(StringConstants.AuthorizationFailedMsg.serverError) (\(code))"
+            case .decodingFailed:
+                errorMessage = "\(StringConstants.AuthorizationFailedMsg.somethingWentWrong)"
             case .unauthorized:
                 errorMessage = "\(StringConstants.AuthorizationFailedMsg.incorrectAuth)"
-                
+            case .serverError:
+                errorMessage = "\(StringConstants.AuthorizationFailedMsg.serverError)"
+            case .cancelled:
+                break // Silent — user or system triggered, no message needed
             case .badUrlResponse:
                 errorMessage = "\(StringConstants.AuthorizationFailedMsg.serverError)"
             case .unknown:

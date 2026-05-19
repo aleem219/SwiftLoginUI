@@ -50,6 +50,8 @@ public enum StringConstants {
         static let serverError               = "Server error. Please try again later."
         static let incorrectAuth             = "Incorrect username or password."
         static let somethingWentWrong        = "Something went wrong. Please try again."
+        static let noInternet                = "No internet connect. Please try again"
+        static let timeout                   = "timeout "
     }
     
     public enum ValidInputdMsg {
@@ -72,8 +74,8 @@ public enum StringConstants {
         static let loginLogo                = "logo"
         static let passowrdTextfieldImg     = "lock.circle"
         static let emailTextfieldImg        = "person.circle"
-        static let leftArrow                = "arrow.left.circle"  // lifecycleImage
-        static let lifecycleImage           = "lifecycleImage"  //
+        static let leftArrow                = "arrow.left.circle"
+        static let lifecycleImage           = "lifecycleImage"
     }
     
     public enum FolderNames {
